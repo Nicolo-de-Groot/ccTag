@@ -1,0 +1,53 @@
+! 1) Settings used in the main program.
+Main:numberOfEvents = 10000          ! number of events to generate
+Main:timesAllowErrors = 3          ! how many aborts before run stops
+
+! 2) Settings related to output in init(), next() and stat().
+Init:showChangedSettings = on      ! list changed settings
+Init:showChangedParticleData = off ! list changed particle data
+Next:numberCount = 1000             ! print message every n events
+Next:numberShowInfo = 1            ! print event information n times
+Next:numberShowProcess = 1         ! print process record n times
+Next:numberShowEvent = 0           ! print event record n times
+
+! 3) Beam parameter settings. Values below agree with default ones.
+Beams:idA = 2212                   ! first beam, p = 2212, pbar = -2212
+Beams:idB = 2212                   ! second beam, p = 2212, pbar = -2212
+Beams:eCM = 13000.                 ! CM energy of collision
+
+! 4) Settings for the hard-process generation.
+
+!WeakBosonExchange:ff2ff(t:gmZ) = on ! Z -> ff, switht these 3 on to generate Z->qq
+!WeakSingleBoson:ffbar2gmZ = on
+!WeakZ0:gmZmode = 2		    ! only Z0
+! various charmonium processes 
+!Charmonium:gg2ccbar(3S1)[3S1(1)]g =off,on  ! charmonium + gluon [first: J/Psi, 2nd: Psi2S]
+!Charmonium:gg2ccbar(3S1)[3S1(1)]gm =off,on  ! charmonium + gamma [first: J/Psi, 2nd: Psi2S]
+Charmonium:gg2ccbar(3PJ)[3PJ(1)]g =on,on,on ! Chi 0,1,2
+Charmonium:qg2ccbar(3PJ)[3PJ(1)]q =on,on,on ! Chi 0,1,2f
+Charmonium:qqbar2ccbar(3PJ)[3PJ(1)]g =on,on,on ! Chi 0,1,22
+
+! make sure we have phasespace similar to Z0
+PhaseSpace:pTHatMin = 30.
+PhaseSpace:mHatMin = 87.7
+PhaseSpace:mHatMax = 93.7
+
+! 4b Z0 decays
+23:onMode = off
+23:onIfAny = 1 2 3 4 5
+!23:onIfMatch = 22 443
+!23:oneChannel= on 1.0 100 22 443 
+
+
+! 5) Switch on/off the key event generation steps.
+!PartonLevel:MPI = off              ! no multiparton interactions
+!PartonLevel:ISR = off              ! no initial-state radiation
+!PartonLevel:FSR = off              ! no final-state radiation
+HadronLevel:Hadronize = on        ! no hadronization
+HadronLevel:Decay = on            ! no decays
+
+! 6) Other settings. Can be expanded as desired.
+!Tune:preferLHAPDF = off            ! use internal PDFs when LHAPDF not linked
+Tune:pp = 21                        ! use Tune 4Cx == 6,  use atlas central 21
+ParticleDecays:limitTau0 = on      ! set long-lived particle stable ...
+ParticleDecays:tau0Max = 1000        ! ... if c*tau0 > 10 mm
