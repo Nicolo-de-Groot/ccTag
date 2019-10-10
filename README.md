@@ -7,11 +7,11 @@ Files related to tagging hadronic charmonium decays
 
 * delphes_card_ATLAS.tcl lives in the cards directory
 
-run the simulation with DelphesPythia8 cccc xxxx
+* run the simulation with "./DelphesPythia8 examples/Pythia8/configNoLHE.cmnd cards/delphes_card_ATLAS.tcl outputfile.root"
 
 2. Training data extraction from rootfiles
 
-* use root -l extract.C'("inputfile.root", "outputtype"), with outputtype = "cc", "gluon" or "zqq"
+* use "root -l extract.C'("inputfile.root", "outputtype")", with outputtype = "cc", "gluon" or "zqq"
 
 3. Tensorflow
 
