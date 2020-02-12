@@ -11,7 +11,7 @@ Files related to tagging hadronic charmonium decays
 
 2. Training data extraction from rootfiles
 
-* use "root -l extract.C'("inputfile.root", "outputtype")", with outputtype = "cc", "gluon" or "zqq"
+* use "root -l extract.C'("inputfile.root", "outputtype")', with outputtype = "cc", "gluon" or "zqq"
 
 3. Tensorflow
 
